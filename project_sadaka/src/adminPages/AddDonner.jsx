@@ -24,7 +24,7 @@ const AddDonner = () => {
         formdata.append('Email', Email)
         formdata.append('phone', phone)
       
-        axios.post("http://localhost/React_practice/Fainal-project-of-React/Full-Project/php/donner/add_donner.php", formdata, {
+        axios.post("http://localhost/react-sadaka/php/donner/add_donner.php", formdata, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
@@ -35,8 +35,7 @@ const AddDonner = () => {
                 setlName('')
                 setAddress('')
                 setEmail('')
-                setphone('')
-               
+                setphone('')             
                 navigate('/mangeDonner')
             })
     } 
@@ -49,10 +48,8 @@ const AddDonner = () => {
                 <div id="page-inner">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1 className="page-head-line">DONNER:</h1>
-                               
-                            <AdminSlider />
-                            
+                            <h1 className="page-head-line">DONNER:</h1>      
+                            <AdminSlider />       
                             <NavLink to="/mangeDonner"><button className="btn btn-info btn-lg pull-right">List_Donner</button></NavLink>
                         </div>
                         <div className="row">
