@@ -24,7 +24,7 @@ const AddVolunteer = () => {
         formdata.append('phone', phone)
         formdata.append('address', address)
         formdata.append('note', note)
-        axios.post("http://localhost/react_practice/demo2_sadaka/sadaka_php_api/php/volunteers/add_volunteer.php", formdata, {
+        axios.post("http://localhost/react-sadaka/php/volunteers/add_volunteer.php", formdata, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }

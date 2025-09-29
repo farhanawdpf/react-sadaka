@@ -3,7 +3,7 @@ import AdminSidebar from "../../adminComponents/AdminSidebar";
 import AdminFooter from "../../adminComponents/AdminFooter";
 import AdminSlider from "../../adminComponents/AdminSlider";
 import { useNavigate, NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const AddUser = () => {
@@ -41,7 +41,7 @@ const AddUser = () => {
         setPhoto("");
         setAddress("");
         setPhoto(null);
-        navigate("/manageUser");
+        navigate(`/manageUser`);
       });
   };
   return (
