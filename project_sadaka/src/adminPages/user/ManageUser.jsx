@@ -11,7 +11,7 @@ const ManageUser = () => {
 
   const itemDelete = (id) => {
     axios
-      .post("http://localhost/react-sadaka/php/user/list_user.php?id=" + id)
+      .post("http://localhost/react-sadaka/php/user/delete_user.php?id=" + id)
       .then((res) => console.log(res));
 
     axios
@@ -75,7 +75,7 @@ const ManageUser = () => {
                                   <img
                                     className="w-50"
                                     height={100}
-                                    src={`http://localhost/raju/react-project-raju/react-sadaka/php/images/${data.photo}`}
+                                    src={`http://localhost/react-sadaka/php/user/php/images/${data.photo}`}
                                   />
                                 </td>
                                 <td>

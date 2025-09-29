@@ -3,43 +3,47 @@ import AdminSidebar from "../../adminComponents/AdminSidebar";
 import AdminFooter from "../../adminComponents/AdminFooter";
 import AdminSlider from "../../adminComponents/AdminSlider";
 import { useNavigate, NavLink } from "react-router-dom";
-import React, {useState }from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const AddUser = () => {
-    const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [phone, setPhone] = useState('')
-    const [address, setAddress] = useState('')
-    const [photo, setPhoto] = useState('')
-    const navigate= useNavigate();    
-    const save = () => {
-        const formdata = new FormData()
-        formdata.append('username', username)
-        formdata.append('email', email)
-        formdata.append('password', password)
-        formdata.append('phone', phone)
-        formdata.append('address', address)
-        formdata.append('photo', photo)
-        axios.post("http://localhost/raju/react-project-raju/react-sadaka/php/user/add_user.php", formdata, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        })
-            .then((res) => {
-                console.log(res.data);
-                setUsername('');
-                setEmail('');
-                setPassword('');
-                setPhone('');
-                setPhoto('');
-                setAddress('');
-                setPhoto(null);
-                navigate('/manageUser');
-
-            })
-    }  
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [photo, setPhoto] = useState("");
+  const navigate = useNavigate();
+  const save = () => {
+    const formdata = new FormData();
+    formdata.append("username", username);
+    formdata.append("email", email);
+    formdata.append("password", password);
+    formdata.append("phone", phone);
+    formdata.append("address", address);
+    formdata.append("photo", photo);
+    axios
+      .post(
+        "http://localhost/react-sadaka/php/user/add_user.php",
+        formdata,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setPhone("");
+        setPhoto("");
+        setAddress("");
+        setPhoto(null);
+        navigate("/manageUser");
+      });
+  };
   return (
     <div>
       <AdminNavbar />
@@ -49,11 +53,11 @@ const AddUser = () => {
           <div className="row">
             <div className="col-md-12">
               <h1 className="page-head-line">Add-User</h1>
-                            
+
               <AdminSlider />
-                    <NavLink to={`/manageUser`}>
-                          <button className="btn btn-info btn-lg">User List</button>
-                    </NavLink>
+              <NavLink to={`/manageUser`}>
+                <button className="btn btn-info btn-lg">User List</button>
+              </NavLink>
             </div>
             <br />
             <div className=" row-center">
@@ -72,7 +76,6 @@ const AddUser = () => {
                             className="form-control"
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
-                          
                             placeholder="User Name*"
                           />
                         </div>
@@ -82,7 +85,6 @@ const AddUser = () => {
                             className="form-control"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
-                          
                             placeholder="Email*"
                           />
                         </div>
@@ -94,7 +96,6 @@ const AddUser = () => {
                             className="form-control"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
-                          
                             placeholder="password*"
                           />
                         </div>
@@ -104,7 +105,6 @@ const AddUser = () => {
                             className="form-control"
                             onChange={(e) => setPhone(e.target.value)}
                             value={phone}
-                           
                             placeholder="Phone"
                           />
                         </div>
@@ -117,17 +117,21 @@ const AddUser = () => {
                             className="form-control"
                             onChange={(e) => setAddress(e.target.value)}
                             value={address}
-                           
                             placeholder="Address"
                           />
                         </div>
                       </div>
                       <div className="row">
                         <div className="form-group col-md-12">
-                                <input className="form-control form-control-lg mt-4" id="formFileLg" type="file" onChange={(e) => setPhoto(e.target.files[0])} />
+                          <input
+                            className="form-control form-control-lg mt-4"
+                            id="formFileLg"
+                            type="file"
+                            onChange={(e) => setPhoto(e.target.files[0])}
+                          />
                         </div>
                       </div>
-                      
+
                       <div className="row">
                         <div className="form-group col-md-12">
                           <button
